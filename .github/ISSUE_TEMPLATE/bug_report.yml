@@ -1,0 +1,44 @@
+name: Bug report
+description: Report a reproducible CopyDock problem using non-sensitive data.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Never paste passwords, private clipboard data, or identifying file paths into an issue.
+  - type: input
+    id: version
+    attributes:
+      label: CopyDock version
+      placeholder: 0.6.0
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version and Mac architecture
+      placeholder: macOS 15.6, Apple silicon
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      description: Use safe sample content and name the source and destination apps.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: checkboxes
+    id: environment
+    attributes:
+      label: Checks
+      options:
+        - label: I tested whether drag-and-drop behaves differently.
+        - label: I stated whether Accessibility permission is enabled.
+        - label: This report contains no sensitive clipboard content.
+          required: true

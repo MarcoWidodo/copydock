@@ -1,0 +1,25 @@
+name: Feature request
+description: Suggest a focused improvement that preserves CopyDock's local, nine-slot model.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: User problem
+      description: What is hard today, and who encounters it?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: privacy
+    attributes:
+      label: Privacy, permission, and compatibility impact
+      description: Note any persistence, networking, Accessibility, or new format implications.
+    validations:
+      required: true

@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-check:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Swift version
+        run: swift --version
+      - name: Build CopyDock
+        run: swift build --product CopyDock
+      - name: Run core checks
+        run: swift run CopyDockChecks
+      - name: Run preview self-check
+        run: swift run CopyDock --self-check-preview
+      - name: Build app bundle
+        run: ./scripts/build-app.sh release
+      - name: Verify bundle signature
+        run: codesign --verify --deep --strict --verbose=2 dist/CopyDock.app
